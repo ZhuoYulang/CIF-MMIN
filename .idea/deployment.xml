@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="IF-MMIN-Second" uploadOnCheckin="3d41caeb-d884-4560-8065-549d3c152236" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="IF-MMIN-Second">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/zuohaolin/MMIN-Second" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="zuohaolin@183.175.12.112:22 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/pycharm_project_226" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="IF-MMIN-Second" />
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

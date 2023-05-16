@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3d41caeb-d884-4560-8065-549d3c152236" name="IF-MMIN-Second">
+        <fileTransfer rootFolder="/sdc/home/zuohaolin" accessType="SFTP" host="183.175.12.112" port="22" sshConfigId="ba4e7652-af0e-404b-a42f-83dfb0f7487d" sshConfig="zuohaolin@183.175.12.112:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
