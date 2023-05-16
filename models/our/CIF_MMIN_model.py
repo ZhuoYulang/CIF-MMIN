@@ -1,6 +1,3 @@
-"""
-最后确定的，我们提出的模型
-"""
 import torch
 import os
 import json
