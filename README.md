@@ -1,4 +1,4 @@
-# MMIN
+# CIF-MMIN
 
 This repo implements the Missing Modality Imagination Network(MMIN) for the following paper:
 "Missing Modality Imagination Network for Emotion Recognition with Uncertain Missing Modalities" 
@@ -6,8 +6,8 @@ This repo implements the Missing Modality Imagination Network(MMIN) for the foll
 # Environment
 
 ``` 
-python 3.7.0
-pytorch >= 1.0.0
+python 3.8.0
+pytorch >= 1.8.0
 ```
 
 # Usage
@@ -50,9 +50,9 @@ IEMOCAP A V L modality Features
 # License
 MIT license. 
 
-Copyright (c) 2021 AIM3-RUC lab, School of Information, Renmin University of China.
+Copyright (c) 2023 S2Lab, School of Inner Mongolia University.
 
-# Citation
+<!-- # Citation
 If you find our paper and this code usefull, please consider cite
 ```
 @inproceedings{zhao2021missing,
@@ -62,4 +62,4 @@ If you find our paper and this code usefull, please consider cite
   pages={2608--2618},
   year={2021}
 }
-```
+``` -->
