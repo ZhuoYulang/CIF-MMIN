@@ -5,7 +5,7 @@ gpu=$2
 for i in `seq 1 1 10`;
 do
 
-cmd="python train_miss.py --dataset_mode=multimodal_miss --model=our_6
+cmd="python train_miss.py --dataset_mode=multimodal_miss --model=CIF_MMIN
 --log_dir=./logs --checkpoints_dir=./checkpoints --gpu_ids=$gpu --image_dir=./shared_image
 --A_type=acoustic --input_dim_a=74 --norm_method=trn --embd_size_a=128 --embd_method_a=maxpool
 --V_type=visual --input_dim_v=47 --embd_size_v=128  --embd_method_v=maxpool
@@ -15,7 +15,7 @@ cmd="python train_miss.py --dataset_mode=multimodal_miss --model=our_6
 --output_dim=1 --cls_layers=128,64 --dropout_rate=0.5
 --niter=20 --niter_decay=20 --verbose --print_freq=10
 --batch_size=64 --lr=2e-4 --run_idx=$run_idx --weight_decay=1e-5
---name=our_6_MOSI --suffix=block_{n_blocks}_run_{gpu_ids}_{run_idx} --has_test
+--name=CIF_MMIN_MOSI --suffix=block_{n_blocks}_run_{gpu_ids}_{run_idx} --has_test
 --pretrained_path='checkpoints/MOSI_utt_self_supervise_AVL_run1'
 --cvNo=$i --num_classes=1 --random_seed=336"
 
