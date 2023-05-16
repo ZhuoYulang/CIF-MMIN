@@ -49,20 +49,6 @@ def eval(model, val_iter, is_save=False, phase='test', epoch=-1, mode=None):
         total_pred.append(pred)
         total_label.append(label)
         total_miss_type.append(miss_type)
-        # print(model.isTrain)
-
-        # if epoch != -1 and phase == 'test':  # 在最优模型的情况下选取样本
-        #     if i in random_iters:  # 随机选取多组样本
-        #         if '607' not in model.opt.model:
-        #             consistent_filepath = model.consistent_image_save_dir
-        #             consistent_feat = model.consistent_miss
-        #             with open(os.path.join(consistent_filepath, str(i)+'_consistent_feat.pkl'), 'wb') as th:
-        #                 pickle.dump(consistent_feat, th)
-        #             th.close()
-        #             with open(os.path.join(consistent_filepath, str(i)+'_miss_type.pkl'), 'wb') as tg:
-        #                 pickle.dump(miss_type, tg)
-        #             tg.close()
-        #             print('save pkl success!')
 
     # calculate metrics
     total_pred = np.concatenate(total_pred)
@@ -160,7 +146,6 @@ def calc_metrics(y_true, y_pred, mode=None, to_print=False):
     mae = np.mean(np.absolute(test_preds - test_truth))  # Average L1 distance between preds and truths
     corr = np.corrcoef(test_preds, test_truth)[0][1]
     f_score = f1_score((test_preds[non_zeros] > 0), (test_truth[non_zeros] > 0), average='weighted')
-    # f_score = f1_score(test_truth[non_zeros], test_preds[non_zeros], average='weighted')
 
     return mae, corr, f_score
 
@@ -219,8 +204,6 @@ if __name__ == '__main__':
     total_iters = 0  # the total number of training iterations
     best_eval_epoch = -1  # record the best eval epoch
     best_eval_acc, best_eval_uar, best_eval_f1, best_eval_corr, best_eval_mae = 0, 0, 0, 0, 10
-    loss_list = []
-    loss_num = 0
 
     for epoch in range(opt.epoch_count,
                        opt.niter + opt.niter_decay + 1):  # outer loop for different epochs; we save the model by <epoch_count>, <epoch_count>+<save_latest_freq>
@@ -241,11 +224,6 @@ if __name__ == '__main__':
                 t_comp = (time.time() - iter_start_time) / opt.batch_size
                 logger.info('Cur epoch {}'.format(epoch) + ' loss ' +
                             ' '.join(map(lambda x: '{}:{{{}:.4f}}'.format(x, x), model.loss_names)).format(**losses))
-                if loss_add:
-                    # print(model.loss_shared.double().detach().cpu())
-                    loss_list.append(model.loss_consistent.double().detach().cpu())
-                    loss_num += 1
-                    loss_add = False
             iter_data_time = time.time()
 
         if epoch % opt.save_epoch_freq == 0:  # cache our model every <save_epoch_freq> epochs
@@ -308,9 +286,6 @@ if __name__ == '__main__':
             best_metric = best_eval_mae
         else:
             raise ValueError(f'corpus name must be IEMOCAP, CMU-MOSI, or MSP, but got {opt.corpus_name}')
-
-    if 'our' in model.opt.model:
-        recorder_loss.write_result_to_tsv(loss_list, opt.cvNo)
 
     logger.info('Best eval epoch %d found with %s %f' % (best_eval_epoch, select_metric, best_metric))
     # test
