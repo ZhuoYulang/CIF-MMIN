@@ -40,25 +40,6 @@ def eval(model, val_iter, is_save=False, phase='test', eopch=-1, mode=None):
         total_pred.append(pred)
         total_label.append(label)
 
-        # random_iters = [i for i in range(0, 23)]
-        # if epoch != -1 and phase == 'test':  # 在最优模型的情况下选取样本
-        #     if i in random_iters:  # 随机选取多组样本
-        #         if 'our_2' not in model.opt.model:  # 如果是our模型，save consistent_feat,label,and miss_type
-        #             consistent_filepath = model.consistent_image_save_dir
-        #             consistent_feat_A = model.feat_shared_A
-        #             consistent_feat_V = model.feat_shared_V
-        #             consistent_feat_T = model.feat_shared_T
-        #             # consistent_feat = model.feat_fusion_miss
-        #             with open(os.path.join(consistent_filepath, str(i)+'_consistent_feat_A.pkl'), 'wb') as th:
-        #                 pickle.dump(consistent_feat_A, th)
-        #             th.close()
-        #             with open(os.path.join(consistent_filepath, str(i)+'_consistent_feat_V.pkl'), 'wb') as th:
-        #                 pickle.dump(consistent_feat_V, th)
-        #             th.close()
-        #             with open(os.path.join(consistent_filepath, str(i)+'_consistent_feat_L1.pkl'), 'wb') as th:
-        #                 pickle.dump(consistent_feat_T, th)
-        #             th.close()
-
     # calculate metrics
     total_pred = np.concatenate(total_pred)
     total_label = np.concatenate(total_label)
@@ -139,14 +120,6 @@ def multiclass_acc(preds, truths):
 
 
 if __name__ == '__main__':
-    # # Setting random seed
-    # random_name = str(random())
-    # random_seed = 336
-    # torch.manual_seed(random_seed)
-    # torch.cuda.manual_seed_all(random_seed)
-    # torch.backends.cudnn.deterministic = True
-    # torch.backends.cudnn.benchmark = False
-    # np.random.seed(random_seed)
     opt = Options().parse()  # get training options
     logger_path = os.path.join(opt.log_dir, opt.name, str(opt.cvNo))  # get logger path
     if not os.path.exists(logger_path):  # make sure logger path exists
