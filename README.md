@@ -1,7 +1,7 @@
 # CIF-MMIN
 
-This repo implements the Missing Modality Imagination Network(MMIN) for the following paper:
-"Missing Modality Imagination Network for Emotion Recognition with Uncertain Missing Modalities" 
+This repo implements the CIF Aware Missing Modality Imagination Network (CIF-MMIN)  for the following paper:
+"Contrastive Learning based Modality-Invariant Feature Acquisition for Robust Multimodal Emotion Recognition with Missing Modalities" 
 
 # Environment
 
@@ -16,30 +16,40 @@ First you should change the data folder path in ```data/config``` and preprocess
 
 The preprocess of feature was done handcrafted in several steps, we will make it a automatical running script in the next update. You can download the preprocessed feature to run the code.
 
-+ For Training MMIN on IEMOCAP:
++ For Training CIF-MMIN on IEMOCAP:
 
-    First training a model fusion model with all audio, visual and lexical modality as the pretrained encoder.
+    First training a model self-supervise model with all audio, visual and lexical modality as the pretrained encoder.
 
     ```bash
-    bash scripts/CAP_utt_fusion.sh AVL [num_of_expr] [GPU_index]
+    bash scripts/CAP_utt_self_supervise.sh AVL [num_of_expr] [GPU_index]
     ```
 
     Then
 
     ```bash
-    bash scripts/CAP_mmin.sh [num_of_expr] [GPU_index]
+    bash scripts/our/CAP_CIF_MMIN.sh [num_of_expr] [GPU_index]
     ```
 
-+ For Training MMIN on MSP-improv: 
++ For Training CIF-MMIN on MSP-improv: 
 
     ```bash
-    bash scripts/MSP_utt_fusion.sh AVL [num_of_expr] [GPU_index]
+    bash scripts/MSP_utt_self_supervise.sh AVL [num_of_expr] [GPU_index]
     ```
 
     ```
-    bash scripts/MSP_mmin.sh [num_of_expr] [GPU_index]
+    bash scripts/our/MSP_CIF_MMIN.sh [num_of_expr] [GPU_index]
+    ```
+    
++ For Training CIF-MMIN on MOSI: 
+
+    ```bash
+    bash scripts/MOSI_utt_self_supervise.sh AVL [num_of_expr] [GPU_index]
     ```
 
+    ```
+    bash scripts/our/MOSI_CIF_MMIN.sh [num_of_expr] [GPU_index]
+    ```
+    
 Note that you can run the code with default hyper-parameters defined in shell scripts, for changing these arguments, please refer to options/get_opt.py and the ```modify_commandline_options``` method of each model you choose.
 
 # Download the features
