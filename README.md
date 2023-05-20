@@ -55,7 +55,16 @@ Note that you can run the code with default hyper-parameters defined in shell sc
 # Download the features
 Baidu Yun Link
 IEMOCAP A V L modality Features
-链接: https://pan.baidu.com/s/1WmuqNlvcs5XzLKfz5i4iqQ 提取码: gn6w 
+链接：https://pan.baidu.com/s/1i4_ZKFwGUE4cVrxi20dKPg?pwd=id33 
+提取码：id33
+
+MSP-IMPROV A V L modality Features
+链接：https://pan.baidu.com/s/1UzyiC2idpXM8pz0RU5YOCQ?pwd=pcel 
+提取码：pcel
+
+CMU-MOSI A V L modality Features
+链接：https://pan.baidu.com/s/1N8fl8gQC5HTWXuESPUz1pg?pwd=vm51 
+提取码：vm51
 
 # License
 MIT license. 
