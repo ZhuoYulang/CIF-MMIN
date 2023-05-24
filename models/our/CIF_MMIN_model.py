@@ -15,7 +15,7 @@ from models.utt_self_supervise_model import UttSelfSuperviseModel
 from models.utt_AVL_model import UttAVLModel
 
 
-class our6Model(BaseModel):
+class CIFMMINModel(BaseModel):
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
         parser.add_argument('--input_dim_a', type=int, default=130, help='acoustic input dim')
